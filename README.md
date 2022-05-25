@@ -23,6 +23,7 @@ Wow, magic, amazing!
    - Add your `SCHEMA` to the view.
    - `csrf_exempt` the view.
 5. Add a `greet` resolver to your query. It should accept a `name` and respond to that name with a greeting.
+6. Run `pytest -m task1` and verify you passed all tests.
 
 ## Graphene-Django Queries
 
@@ -32,6 +33,7 @@ Wow, magic, amazing!
 4. Create a resolver for many `recipes` (hint: use `graphene_django.DjangoListField` to simplify things).
 5. Import your `FoodQuery` into `recipes/schemas.py`, and let `Query` inherit from `FoodQuery` (it should be the class before `graphene.ObjectType`).
 6. Create some objects using the admin panel, and check that your queries work on `Altair GraphQL Client`.
+7. Run `pytest -m task2` and verify you passed all tests.
 
 ## Graphene-Django Queries Bonus
 
@@ -50,3 +52,4 @@ Add an optional limit clause to your `recipes` resolver. The resolver should def
    - If you have not found the object, return a `DeleteRecipe` instance with `status=False`.
 8. Add this mutation to your `FoodMutation` class, by removing `pass` and adding a variable called `delete_recipe` which is equal to `DeleteRecipe.Field()`.
 9. Test that your mutation works on `Altair GraphQL Client`.
+10. Run `pytest -m task3` and verify you passed all tests.
