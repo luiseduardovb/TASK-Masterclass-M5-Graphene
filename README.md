@@ -27,12 +27,11 @@ Wow, magic, amazing!
 ## Graphene-Django Queries
 
 1. Create a `type` in `food/types.py` for all the models in `food/models.py` (make sure to inherit from `graphene_django.DjangoObjectType`).
-2. Import all the types you have created in `food/types.py` into `schemas.py` (even if you do not end up using them), and to make things simpler import them using a wildcard (i.e., `from food.types import *`).
-3. Create a `FoodQuery` in `food/schemas.py`, which will inherit from `graphene.ObjectType`.
-4. Create a resolver for a single `recipe`, which will take in an ID.
-5. Create a resolver for many `recipes`.
-6. Import your `FoodQuery` into `recipes/schemas.py`, and let `Query` inherit from `FoodQuery` (it should be the class before `graphene.ObjectType`).
-7. Create some objects using the admin panel, and check that your queries work on `Altair GraphQL Client`.
+2. Create a `FoodQuery` in `food/schemas.py`, which will inherit from `graphene.ObjectType`.
+3. Create a resolver for a single `recipe`, which will take in an ID (hint: `recipe` will be a `graphene.Field` type).
+4. Create a resolver for many `recipes` (hint: use `graphene_django.DjangoListField` to simplify things).
+5. Import your `FoodQuery` into `recipes/schemas.py`, and let `Query` inherit from `FoodQuery` (it should be the class before `graphene.ObjectType`).
+6. Create some objects using the admin panel, and check that your queries work on `Altair GraphQL Client`.
 
 ## Graphene-Django Queries Bonus
 
