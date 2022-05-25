@@ -28,7 +28,7 @@ Wow, magic, amazing!
 
 1. Create a `type` in `food/types.py` for all the models in `food/models.py` (make sure to inherit from `graphene_django.DjangoObjectType`).
 2. Create a `FoodQuery` in `food/schemas.py`, which will inherit from `graphene.ObjectType`.
-3. Create a resolver for a single `recipe`, which will take in an ID (hint: `recipe` will be a `graphene.Field` type).
+3. Create a resolver for a single `recipe`, which will take in a `recipe_id` (hint: `recipe` will be a `graphene.Field` type).
 4. Create a resolver for many `recipes` (hint: use `graphene_django.DjangoListField` to simplify things).
 5. Import your `FoodQuery` into `recipes/schemas.py`, and let `Query` inherit from `FoodQuery` (it should be the class before `graphene.ObjectType`).
 6. Create some objects using the admin panel, and check that your queries work on `Altair GraphQL Client`.
@@ -43,10 +43,10 @@ Add an optional limit clause to your `recipes` resolver. The resolver should def
 2. Add your `Mutation` class to the `SCHEMA` variable in the same file (you should add it to the `graphene.Schema` constructor).
 3. Add a `FoodMutation` in `foods/schemas.py` under your `FoodQuery` class, which inherits from `graphene.ObjectType`. This will be the container class for all your `food` mutations, for now it should just `pass`.
 4. Import your `FoodMutation` into `recipes/schemas.py`, and let `Mutation` inherit from `FoodMutation` (it should be the class before `graphene.ObjectType`).
-5. Add a `RecipeDelete` mutation class (should inherit from `graphene.Mutation`), it should take in an `id` as an argument (it should be an integer).
+5. Add a `DeleteRecipe` mutation class (should inherit from `graphene.Mutation`), it should take in a `recipe_id` as an argument (it should be an integer).
 6. Add a return type under your `arguments`, which will just be a `graphene.Boolean` variable named `status`.
 7. In the `mutate` method you should try to `get` the `recipe` object with that `id`, and `delete` it.
-   - If you found the object and deleted it, return a `RecipeDelete` instance with `status=True`.
-   - If you have not found the object, return a `RecipeDelete` instance with `status=False`.
-8. Add this mutation to your `FoodMutation` class, by removing `pass` and adding a variable called `delete_recipe` which is equal to `RecipeDelete.Field()`.
+   - If you found the object and deleted it, return a `DeleteRecipe` instance with `status=True`.
+   - If you have not found the object, return a `DeleteRecipe` instance with `status=False`.
+8. Add this mutation to your `FoodMutation` class, by removing `pass` and adding a variable called `delete_recipe` which is equal to `DeleteRecipe.Field()`.
 9. Test that your mutation works on `Altair GraphQL Client`.
