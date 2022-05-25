@@ -36,3 +36,17 @@ Wow, magic, amazing!
 ## Graphene-Django Queries Bonus
 
 Add an optional limit clause to your `recipes` resolver. The resolver should default this parameter to `None`, and if it receives it, then it should limit the query.
+
+## Mutations
+
+1. Add a `Mutation` class that inherits from `graphene.ObjectType` in `recipes/schemas.py`, and just `pass`es for now.
+2. Add your `Mutation` class to the `SCHEMA` variable in the same file (you should add it to the `graphene.Schema` constructor).
+3. Add a `FoodMutation` in `foods/schemas.py` under your `FoodQuery` class, which inherits from `graphene.ObjectType`. This will be the container class for all your `food` mutations, for now it should just `pass`.
+4. Import your `FoodMutation` into `recipes/schemas.py`, and let `Mutation` inherit from `FoodMutation` (it should be the class before `graphene.ObjectType`).
+5. Add a `RecipeDelete` mutation class (should inherit from `graphene.Mutation`), it should take in an `id` as an argument (it should be an integer).
+6. Add a return type under your `arguments`, which will just be a `graphene.Boolean` variable named `status`.
+7. In the `mutate` method you should try to `get` the `recipe` object with that `id`, and `delete` it.
+   - If you found the object and deleted it, return a `RecipeDelete` instance with `status=True`.
+   - If you have not found the object, return a `RecipeDelete` instance with `status=False`.
+8. Add this mutation to your `FoodMutation` class, by removing `pass` and adding a variable called `delete_recipe` which is equal to `RecipeDelete.Field()`.
+9. Test that your mutation works on `Altair GraphQL Client`.
