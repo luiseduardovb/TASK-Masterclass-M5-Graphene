@@ -32,7 +32,7 @@ Wow, magic, amazing!
 4. Create a resolver for a single `recipe`, which will take in an ID.
 5. Create a resolver for many `recipes`.
 6. Import your `FoodQuery` into `recipes/schemas.py`, and let `Query` inherit from `FoodQuery` (it should be the class before `graphene.ObjectType`).
-7. Create some objects using the shell, and check that your queries work on `Altair GraphQL Client`.
+7. Create some objects using the admin panel, and check that your queries work on `Altair GraphQL Client`.
 
 ## Graphene-Django Queries Bonus
 
