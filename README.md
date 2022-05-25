@@ -21,6 +21,7 @@ Wow, magic, amazing!
    - Name the endpoint `graphql/`
    - Enable `graphiql` based on `settings.DEBUG`.
    - Add your `SCHEMA` to the view.
+   - `csrf_exempt` the view.
 5. Add a `greet` resolver to your query. It should accept a `name` and respond to that name with a greeting.
 
 ## Graphene-Django Queries
